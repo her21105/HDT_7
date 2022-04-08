@@ -1,30 +1,30 @@
 package hoja_7;
 
-public class Association {
+public class Association<K,V> {
 
-	private String clave;
-	private String traduccion;
+	private K clave;
+	private V traduccion;
 	
-	public Association(String clave, String traduccion) {
+	public Association(K clave, V traduccion) {
 		
 		this.clave = clave;
 		this.traduccion = traduccion;
 		
 	}
 
-	public String getClave() {
+	public K getClave() {
 		return clave;
 	}
 
-	public void setClave(String clave) {
+	public void setClave(K clave) {
 		this.clave = clave;
 	}
 
-	public String getTraduccion() {
+	public V getTraduccion() {
 		return traduccion;
 	}
 
-	public void setTraduccion(String traduccion) {
+	public void setTraduccion(V traduccion) {
 		this.traduccion = traduccion;
 	}
 	

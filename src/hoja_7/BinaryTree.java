@@ -24,15 +24,26 @@ public class BinaryTree {
 
     }
 
+    /**
+     * 
+     * @param busqueda
+     * @return
+     */
     public boolean existe(String busqueda) {
         return existe(this.raiz, busqueda);
     }
 
+     /**
+      * 
+      * @param n
+      * @param busqueda
+      * @return
+      */
     private boolean existe(node n, String busqueda) {
         if (n == null) {
             return false;
         }
-        if (n.getDatoClave().equals(busqueda)) {
+        if (busqueda.equalsIgnoreCase(n.getDatoClave())) {
             return true;
         } else if (busqueda.compareTo(n.getDatoClave()) < 0) {
             return existe(n.getIzquierda(), busqueda);
@@ -41,7 +52,41 @@ public class BinaryTree {
         }
 
     }
+    
+    /**
+     * 
+     * @param busqueda
+     * @return
+     */
+    public String traduccion(String busqueda) {
+    	return traduccion(this.raiz, busqueda);
+    }
+    
+    
+    /**
+     * 
+     * @param n
+     * @param busqueda
+     * @return
+     */
+    private String traduccion(node n,String busqueda) {
+    	if (n == null) {
+            return "";
+        }
+        if (busqueda.equalsIgnoreCase(n.getDatoClave())) {
+            return n.getDatoTraduccion();
+        } else if (busqueda.compareTo(n.getDatoClave()) < 0) {
+            return traduccion(n.getIzquierda(), busqueda);
+        } else {
+            return traduccion(n.getDerecha(), busqueda);
+        }
+    }
 
+    /**
+     * 
+     * @param clave
+     * @param traduccion
+     */
     public void insertar(String clave, String traduccion) {
         if (this.raiz == null) {
             this.raiz = new node(clave, traduccion);
@@ -50,6 +95,12 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 
+     * @param padre
+     * @param dato
+     * @param traduccion
+     */
     private void insertar(node padre, String dato, String traduccion) {
         if (dato.compareTo(padre.getDatoClave()) > 0) {
             if (padre.getDerecha() == null) {
@@ -65,7 +116,30 @@ public class BinaryTree {
             }
         }
     }
+    
+    /**
+     * 
+     * 
+     * @param clave
+     * @return
+     */
+    public String traducir(String clave) {
+    	
+    	if(existe(clave)) {
+    		
+    		return traduccion(clave);
+    	}
+    	else {
+    		String traduccion = "*"+clave+"*";
+    		return traduccion;
+    	}
+    	
+    }
 
+    /**
+     * 
+     * @param n
+     */
     private void preorden(node n) {
         if (n != null) {
             n.imprimirDatoClave();
@@ -74,6 +148,10 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 
+     * @param n
+     */
     private void inorden(node n) {
         if (n != null) {
             inorden(n.getIzquierda());
@@ -82,6 +160,10 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 
+     * @param n
+     */
     private void postorden(node n) {
         if (n != null) {
             postorden(n.getIzquierda());
@@ -90,14 +172,23 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 
+     */
     public void preorden() {
         this.preorden(this.raiz);
     }
 
+    /**
+     * 
+     */
     public void inorden() {
         this.inorden(this.raiz);
     }
 
+    /**
+     * 
+     */
     public void postorden() {
         this.postorden(this.raiz);
     }

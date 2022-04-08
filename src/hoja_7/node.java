@@ -20,11 +20,11 @@ public class node {
 	private String clave;
 	private String traduccion;
 	
-	Association dato = new Association(clave, traduccion);
+	private Association<String, String> dato = new Association<String, String>(clave, traduccion);
     private node izquierda, derecha;
 
     public node(String clave, String traduccion) {
-        this.dato = new Association(clave,traduccion);
+        this.dato = new Association<String, String>(clave,traduccion);
         this.izquierda = this.derecha = null;
     }
 
