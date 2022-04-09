@@ -58,12 +58,35 @@ class BinaryTreeTest {
 	void testTraducir() {
 		BinaryTree tree = new BinaryTree();
 		
+		String spa = "hola";
+		String eng = "hello";
+		String spa2 = "caballo";
+		String eng2 = "horse";
+		String aux = "*horse*";
+		boolean mediador = false;
+		tree.insertar(eng,spa);
+		
+		if(spa.equalsIgnoreCase(tree.traducir(eng)) && aux.equalsIgnoreCase(tree.traducir(eng2))) {
+			
+			mediador = true;
+			
+		}
+		
+		assertTrue(mediador);
 		
 	}
 
 	@Test
 	void testPreorden() {
 		BinaryTree tree = new BinaryTree();
+		
+		String uno = "a";
+		String dos = "b";
+		String tres = "c";
+		
+		tree.insertar(uno, uno);
+		tree.insertar(dos, dos);
+		tree.insertar(tres, tres);
 		
 		
 	}
@@ -73,11 +96,15 @@ class BinaryTreeTest {
 		BinaryTree tree = new BinaryTree();
 		
 		
+		
+		
 	}
 
 	@Test
 	void testPostorden() {
 		BinaryTree tree = new BinaryTree();
+		
+		
 		
 		
 	}
