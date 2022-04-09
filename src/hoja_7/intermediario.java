@@ -68,4 +68,14 @@ public class intermediario {
 		return texto;
 	}
 	
+	public void addTraductor(String direccion,String english, String spanish, String french) {
+		//agregar a txt
+		leer.agregar(direccion, english, spanish, french);
+		//agregar a arbol
+		diccionaryEnglish.insertar(spanish, french);
+		diccionaryFrench.insertar(spanish, french);
+	}
+	
+	
+	
 }

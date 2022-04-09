@@ -1,7 +1,11 @@
 package hoja_7;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class archivo {
@@ -73,6 +77,33 @@ public class archivo {
 			return null;
 		}
 		
+		
+		
+		
+	}
+	
+	public void agregar(String direccion, String english, String spanish, String french) {
+		
+		File f;
+		FileWriter w;
+		BufferedWriter bw;
+		PrintWriter wr;
+		
+		try {
+			
+			f = new File(direccion);
+			w = new FileWriter(f);
+			bw = new BufferedWriter(w);
+			wr = new PrintWriter(bw);
+			
+			wr.write(english+","+spanish+","+french);
+			
+			wr.close();
+			bw.close();
+			
+		}catch(Exception e) {
+			System.out.println("error en la escritura");
+		}
 		
 	}
 	
